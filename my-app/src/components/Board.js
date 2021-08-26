@@ -3,13 +3,15 @@ import Square from "./Square";
 import { calculateWinner } from "../helper";
 
 const Board = () => {
-  const [square, setSquare] = useState(Array(9).fill(null));
+  const arr = Array(9).fill(null);
+  const [square, setSquare] = useState(arr);
   const [X, setX] = useState(true);
 
   const winner = calculateWinner(square);
   let status;
+
   if (winner) {
-    status = `Winner is: ${winner}`;
+    window.confirm(`Winner is: ${winner}`);
   } else {
     status = X ? "X" : "O";
   }
